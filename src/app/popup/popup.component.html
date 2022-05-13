@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Add Details</h1>
+<div mat-dialog-content>
+    <form [formGroup]="postForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput placeholder="Placeholder">
+          </mat-form-field>
+    
+          <mat-form-field appearance="outline">
+            <mat-label>Post Type</mat-label>
+            <mat-select formControlName="posttype" placeholder="Categories">
+                <mat-option value="Long">Long</mat-option>
+                <mat-option value="Medium">Medium</mat-option>
+                <mat-option value="Short">Short</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+          </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions [align]="'End'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button mat-raised-button color="primary" (click)="addDetails()">{{actionButton}}</button>
+</div>
